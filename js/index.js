@@ -92,9 +92,17 @@ function MovieElementHTML(title, tagline, stars)
 
 function StarsHTML(stars)
 {
-    return `
-    * * * *
-    `
+    let string = "";
+    for(let i=0; i<4; i++)
+    {
+        if(i<(Math.floor(stars)/2))
+        {
+            string += `<i class="fa-solid fa-star"></i>`;
+        }else{
+            string += `<i class="fa-regular fa-star"></i>`
+        }
+    }
+    return string;
 }
 
 function UpdateTopCanvas(title, overview, genres, year, runtime, budget, revenue)
@@ -113,24 +121,24 @@ function UpdateTopCanvas(title, overview, genres, year, runtime, budget, revenue
     <p>${overview}</p>
     <hr>
     <div class="mt-auto d-flex flex-row justify-content-between">
-        <p>${_genres}</p>
-        
-      <div class="dropdown">
-	  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-		More info
-	  </button>
-	  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-        <li">Year: ${year}</li>
-        <br>
-        <li">Runtime: ${runtime}</li>
-        <br>
-        <li">Budget: $${budget}</li>
-        <br>
-        <li">Revenue: $${revenue}</li>
-	  </ul>
-	</div>
-
-
+    <p>${_genres}</p>
+    
+    <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+    More info
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+    <li">Year: ${year}</li>
+    <br>
+    <li">Runtime: ${runtime}</li>
+    <br>
+    <li">Budget: $${budget}</li>
+    <br>
+    <li">Revenue: $${revenue}</li>
+    </ul>
+    </div>
+    
+    
     </div>
     `
     menuSuperiorBody.innerHTML = bodyHTML;
